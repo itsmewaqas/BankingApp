@@ -5,11 +5,13 @@ import DashSidebar from '../utilities/DashSidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { selectTheme } from '../redux/reducer/themeSlices';
 
 function InnerDashboard(props) {
 
   const data = useSelector((state) => state);
   const location = useLocation();
+  let getTheme = data.themeSlices.themeSlices;
 
   const [sidebarCtrl, sidebarCtrlSet] = useState("dSidebar");
   const [titleCtrl, titleCtrlSet] = useState("titleShow");
@@ -24,10 +26,12 @@ function InnerDashboard(props) {
   }
 
   useEffect(() => {
-  }, [])
+    document.documentElement.setAttribute("data-theme", getTheme);
+  }, [getTheme])
+
 
   return (
-    <div className={`dMain`}>
+    <div className={`dMain ${getTheme}`} data-theme={getTheme}>
       <ToastContainer />
       <DashHeader
         sidebarCtrlFunc={sidebarCtrlFunc}
@@ -35,15 +39,15 @@ function InnerDashboard(props) {
       <div>
         {location.pathname == '/WorkflowEnviroment' ?
           <DashSidebar
-            sidebarCtrl={sidebarCtrl == 'dSidebar' ? 'dSidebarCollaps' : ''}
-            titleCtrl={titleCtrl == 'titleShow' ? 'titleHide' : ''} />
+            sidebarCtrl={sidebarCtrl == 'dSidebar' ? 'dSidebarCollaps' : 'dSidebarCollaps'}
+            titleCtrl={titleCtrl == 'titleShow' ? 'titleHide' : 'titleHide'} />
           :
           <DashSidebar
             sidebarCtrl={sidebarCtrl}
             titleCtrl={titleCtrl} />
         }
         {location.pathname == '/WorkflowEnviroment' ?
-          <div className={envContainer == 'envContainer' ? 'envContainerCollaps' : ''}>
+          <div className={envContainer == 'envContainer' ? 'envContainerCollaps' : 'envContainerCollaps'}>
             <div className='dContainerInner'>
               <Outlet />
             </div>

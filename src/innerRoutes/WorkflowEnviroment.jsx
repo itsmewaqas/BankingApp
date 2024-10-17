@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import { BiSave, BiNotepad, BiCog, BiDotsHorizontalRounded } from "react-icons/bi";
 import React, { useCallback } from 'react';
 import {
   ReactFlow,
@@ -14,6 +13,10 @@ import c2 from '../assets/images/c2.svg';
 import c3 from '../assets/images/c3.svg';
 import c4 from '../assets/images/c4.svg';
 import WorkflowEnviromentServices from '../sharedComponents/WorkflowEnviromentServices';
+import save from '../assets/images/save.svg';
+import notes from '../assets/images/notes.svg';
+import settings from '../assets/images/settings.svg';
+import more from '../assets/images/more.svg';
 
 function WorkflowEnviroment(props) {
 
@@ -37,10 +40,10 @@ function WorkflowEnviroment(props) {
   ]
 
   const menuItems = [
-    { icon: <BiSave size={24} color='#5E186B' />, label: 'Save' },
-    { icon: <BiNotepad size={24} color='#5E186B' />, label: 'Notes' },
-    { icon: <BiCog size={24} color='#5E186B' />, label: 'Settings' },
-    { icon: <BiDotsHorizontalRounded size={24} color='#5E186B' />, label: 'More' },
+    { icon: save, label: 'Save' },
+    { icon: notes, label: 'Notes' },
+    { icon: settings, label: 'Settings' },
+    { icon: more, label: 'More' },
   ];
 
   const selectMenu = (index) => {
@@ -203,8 +206,12 @@ function WorkflowEnviroment(props) {
         </ul>
       </div>
       <WorkflowEnviromentServices />
-      <h1>WorkflowEnviroment</h1>
-
+      <nav class="breadcrumb">
+        <ul>
+          <li><a href="/#/WorkflowProcesses">My Workflows</a></li>
+          <li><a aria-current="page">Workflow Enviroment</a></li>
+        </ul>
+      </nav>
       <Container fluid className='px-1'>
         <Row>
           <Col md={12}>
@@ -228,7 +235,7 @@ function WorkflowEnviroment(props) {
           {menuItems.map((item, index) => (
             <li key={index.toString()}>
               <a className={activeIndex === index ? 'active' : ''} onClick={() => handleClick(index)}>
-                <i>{item.icon}</i><span>{item.label}</span>
+                <img src={item.icon} alt="" /><span>{item.label}</span>
               </a>
             </li>
           ))}

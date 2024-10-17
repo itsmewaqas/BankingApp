@@ -11,6 +11,9 @@ import { BiEnvelope, BiLock } from "react-icons/bi";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
 
+import loginIcon1 from '../assets/images/loginEmailIcon.svg';
+import loginIcon2 from '../assets/images/loginPasswordIcon.svg';
+
 function Login() {
 
   const dispatch = useDispatch();
@@ -75,18 +78,18 @@ function Login() {
               <h1>Get Started <span>Welcome To NGS Login your Account or <a href="#">Register here!</a></span></h1>
               <div className='mt-4 my-5'>
                 <Form.Group className="mb-3">
-                  <Form.Label>Username</Form.Label>
+                  <Form.Label>Email</Form.Label>
                   <div className='fieldBox'>
-                    <i> <BiEnvelope size={20} color='#9988A6' /></i>
-                    <Form.Control type="email" name="email" value={values.email} placeholder="name@example.com" onChange={handleChnage} />
+                    <i> <img src={loginIcon1} alt="" /></i>
+                    <Form.Control type="email" name="email" value={values.email} placeholder="Enter Your Email Here" onChange={handleChnage} />
                   </div>
                   {errors.email && <p className='error'>{errors.email}</p>}
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <div className='fieldBox'>
-                    <i><BiLock size={20} color='#9988A6' /></i>
-                    <Form.Control type={pass ? 'password' : 'text'} name="password" value={values.password} placeholder="***********" onChange={handleChnage} />
+                  <i> <img src={loginIcon2} alt="" /></i>
+                    <Form.Control type={pass ? 'password' : 'text'} name="password" value={values.password} placeholder="Enter Your Password Here" onChange={handleChnage} />
                     <a onClick={() => setpass(!pass)}>
                       {pass == true ? <FiEye size={20} color='#9988A6' /> : <FiEyeOff size={20} color='#9988A6' />}
                     </a>

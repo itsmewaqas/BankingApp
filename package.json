@@ -26,7 +26,8 @@
     "react-toastify": "^10.0.5",
     "redux-persist": "^6.0.0",
     "save-dev": "^0.0.1-security",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^5.0.0"
   },
   "scripts": {
     "predeploy": "npm run build",

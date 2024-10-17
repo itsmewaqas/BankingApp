@@ -14,7 +14,7 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['userDetail','loginDetail'],//Things you want to persist
+  whitelist: ['userDetail','loginDetail','themeSlices'],//Things you want to persist
   blacklist: ['key3', 'key4'],//Things you don't want to persist
 };
 

@@ -111,7 +111,11 @@ function WorkflowProcesses() {
       <Container fluid className='px-1'>
         <Row>
           <Col md={6}>
-            <h1>My Workflows</h1>
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href="/">My Workflows</a></li>
+              </ul>
+            </nav>
           </Col>
           <Col md={6}>
             <FilledButton

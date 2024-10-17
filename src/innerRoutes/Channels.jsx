@@ -121,7 +121,11 @@ function Channels(props) {
       <Container fluid className='px-1'>
         <Row>
           <Col md={6}>
-            <h1>My Channels</h1>
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href="/">My Channels</a></li>
+              </ul>
+            </nav>
           </Col>
           <Col md={6}>
             <FilledButton

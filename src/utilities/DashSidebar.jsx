@@ -45,10 +45,11 @@ function DashSidebar(props) {
 
   return (
     <div className={props.sidebarCtrl}>
-      {location.pathname == '/WorkflowEnviroment' ?
-       <a className='logoCollaps' onClick={() => navigate('/Dashboard')}> <img src={collapsLogo} alt="" /> </a>
+      {props.sidebarCtrl == 'dSidebar' ?
+        <a className='logo' onClick={() => navigate('/Dashboard')}><img src={logo} alt="" /></a>
         :
-        <a className='logo' onClick={() => navigate('/Dashboard')}> <img src={logo} alt="" /> </a>}
+        <a className='logoCollaps' onClick={() => navigate('/Dashboard')}><img src={collapsLogo} alt="" /></a>
+      }
       <ul className='sidebar'>
         {menuData?.map((item, index) => (
           <li key={index.toString()}  >
